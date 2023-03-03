@@ -7,8 +7,10 @@ import avatar from '../image/Hansel.svg'
 
 const App = () => {
   const [state, setState] = useState(true);
-  const [tweets, setTweets] = useState(777);
+  // const [tweets, setTweets] = useState(777);
   const [followers, setFollowers] = useState(100500);
+
+  const tweets = 777;
 
   
   const following = () => {
