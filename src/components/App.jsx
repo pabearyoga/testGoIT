@@ -1,30 +1,84 @@
-// import { useState } from "react";
+import { useState } from "react";
 
-import bgImg from '../picture.svg'
-import logo from '../Vector.svg'
+import bgImg from '../image/picture.svg'
+import logo from '../image/Vector.svg'
+import avatar from '../image/Hansel.svg'
+
+
 const App = () => {
+  const [state, setState] = useState(true);
+  const [tweets, setTweets] = useState(777);
+  const [followers, setFollowers] = useState(100500);
 
+  
+  const following = () => {
+    state ? setState(false) : setState(true)
+    state ? setFollowers((prevState) => (prevState + 1) ) : setFollowers((prevState) => (prevState - 1))
+  }
+
+
+  const bntStyle = { padding: '14px 28px', backgroundColor: '#EBD8FF', boxShadow: '0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25)', borderRadius: 10, border: 'none', width: 118, }
+
+  
 
   return (
+    //window
     <div style={{
-      display: "flex", justifyContent: 'center', paddingTop: 10} }>
+      display: "flex", justifyContent: 'center', paddingTop: 10
+    }}>
+      {/* //container */}
       <div style={{ width: 380, height: 460, borderRadius: 20, background: ' linear-gradient(114.99deg, #471CA9 -0.99%, #5736A3 54.28%, #4B2A99 78.99%)', position: 'relative' }}>
-        <div style={{display: 'flex', justifyContent: 'center', marginTop: 28}}>
+        {/* //imgBg */}
+        <div style={{display: 'flex', justifyContent: 'center', marginTop: 28, marginBottom: 18}}>
           <img src={bgImg} alt=""  />
         </div>
+
+        {/* //logo */}
         <div style={{ position: 'absolute', top: 20, left: 20}}>
           <img src={logo} alt=""  />
         </div>
-        <div style={{marginBottom: 16, display: 'flex', justifyContent: 'center', textTransform: 'uppercase', color: '#EBD8FF'}}>
-          <p>777 tweets</p>
+
+        {/* //midleLineAvatarWrapper */}
+        <div style={{position: 'relative'}}>
+          {/* //ecvatorLine */}
+          <div style={{ height: 8, background: '#EBD8FF', boxShadow: '0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06), inset 0px -1.71846px 3.43693px #AE7BE3, inset 0px 3.43693px 2.5777px #FBF8FF' }}></div>
+          
+          {/* //avatarElips */}
+          {/* avatarBorder */}
+          <div style={{
+            width: 64, height: 64, border: '8px solid #EBD8FF', borderRadius: 100, position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: '#5736A3' }}>
+            {/* avatar */}
+            <div style={{ boxShadow: '0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06), inset 0px -2.19582px 4.39163px #AE7BE3, inset 0px 4.39163px 3.29372px #FBF8FF', width: 80, height: 80, borderRadius: 100, background: 'transparent', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <img src={avatar} alt="" width="64" height="64" />
+            </div>
+          </div>
         </div>
-        <div style={{marginBottom: 16, display: 'flex', justifyContent: 'center', textTransform: 'uppercase', color: '#EBD8FF'}}>
-          <p>100,500 followers</p>
+
+        {/* //countWrapper */}
+        <div style={{marginTop: 62, display: 'flex', flexDirection: 'column', gap: 16}}>
+          {/* //tweets */}
+          <div style={{ display: 'flex', justifyContent: 'center', textTransform: 'uppercase', color: '#EBD8FF'}}>
+            <p>{tweets} tweets</p>
+          </div>
+          {/* //followers */}
+          <div style={{ display: 'flex', justifyContent: 'center', textTransform: 'uppercase', color: '#EBD8FF'}}>
+            <p>{followers} followers</p>
+          </div>
+        </div>
+
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 26}}>
+          <button
+            type="button"
+            style={state ? {...bntStyle} :  {...bntStyle, backgroundColor: '#5CD3A8'}}
+            onClick={() => following()}
+          >
+            <span>{state ? 'Follow' : 'Following'}</span>
+          </button>
         </div>
         
 
       </div>
-      </div>
+    </div>
 )
 }
 
