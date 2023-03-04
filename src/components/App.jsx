@@ -1,4 +1,6 @@
-import { useState } from "react";
+// import { useState } from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
+
 
 import bgImg from '../image/picture.svg'
 import logo from '../image/Vector.svg'
@@ -6,20 +8,29 @@ import avatar from '../image/Hansel.svg'
 
 
 const App = () => {
-  const [state, setState] = useState(true);
-  // const [tweets, setTweets] = useState(777);
-  const [followers, setFollowers] = useState(100500);
+  // const [state, setState] = useState(true);
+  // const [followers, setFollowers] = useState(100500);
+  const [state, setState] = useLocalStorage('following', false);  // const [tweets, setTweets] = useState(777);
+  const [followers, setFollowers] = useLocalStorage('followers', 100500);  // const [tweets, setTweets] = useState(777);
 
   const tweets = 777;
 
   
   const following = () => {
     state ? setState(false) : setState(true)
-    state ? setFollowers((prevState) => (prevState + 1) ) : setFollowers((prevState) => (prevState - 1))
+    state ? setFollowers((prevState) => (prevState - 1)) : setFollowers((prevState) => (prevState + 1))
   }
 
 
-  const bntStyle = { padding: '14px 28px',color: '#373737', backgroundColor: '#EBD8FF', boxShadow: '0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25)', borderRadius: 10, border: 'none', fontFamily: 'Montserrat-SemiBold', fontSize: 18, textTransform: 'uppercase', width: 196 }
+  const bntStyle = { padding: '14px 28px', color: '#373737', backgroundColor: '#EBD8FF', boxShadow: '0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25)', borderRadius: 10, border: 'none', fontFamily: 'Montserrat-SemiBold', fontSize: 18, textTransform: 'uppercase', width: 196 }
+  
+  const followersPoint = (number) => {
+    const numberArr = number.toString().split("");
+    const firstPart = numberArr.slice(0,3).join("")
+    const secondPart = numberArr.slice(3).join("")
+    return `${firstPart},${secondPart}`
+  }
+
 
   
 
@@ -64,14 +75,14 @@ const App = () => {
           </div>
           {/* //followers */}
           <div style={{ display: 'flex', justifyContent: 'center', textTransform: 'uppercase', color: '#EBD8FF', fontFamily: 'Montserrat-Medium', fontSize: 20}}>
-            <p>{followers} followers</p>
+            <p>{followersPoint(followers)} followers</p>
           </div>
         </div>
 
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 26}}>
           <button
             type="button"
-            style={state ? {...bntStyle} :  {...bntStyle, backgroundColor: '#5CD3A8'}}
+            style={state ? {...bntStyle, backgroundColor: '#5CD3A8'} : {...bntStyle}}
             onClick={() => following()}
           >
             <span>{state ? 'Follow' : 'Following'}</span>
