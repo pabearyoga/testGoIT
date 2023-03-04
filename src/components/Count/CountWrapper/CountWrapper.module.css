@@ -1,0 +1,6 @@
+.countWrapper {
+  margin-top: 62px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

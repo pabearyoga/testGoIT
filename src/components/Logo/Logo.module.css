@@ -1,0 +1,10 @@
+.imgWrapper {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.img {
+  display: block;
+  max-width: none;
+}

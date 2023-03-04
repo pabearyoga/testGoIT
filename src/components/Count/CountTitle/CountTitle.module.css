@@ -1,0 +1,8 @@
+.countTitleWrapper {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  color: #ebd8ff;
+  font-family: "Montserrat-Medium";
+  font-size: 20px;
+}

@@ -1,0 +1,18 @@
+.cardSection {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.containerSection {
+  width: 380px;
+  height: 460px;
+  border-radius: 20px;
+  background: linear-gradient(
+    114.99deg,
+    #471ca9 -0.99%,
+    #5736a3 54.28%,
+    #4b2a99 78.99%
+  );
+  position: relative;
+}
