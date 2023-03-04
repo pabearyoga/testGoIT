@@ -5,12 +5,10 @@ import CardItem from './CardItem/CatdItem';
 
 const CardList  = ({userData }) => (
 
-  <ul >
+  <ul>
     {userData.map(userData => (
-      <li
-        key={userData.id}
-        >
-            <CardItem data={userData} />       
+      <li key={userData.id}>
+        <CardItem data={userData} />       
       </li>))}
   </ul>
   );
