@@ -81,7 +81,7 @@ const App = () => {
             style={state ? {...bntStyle, backgroundColor: '#5CD3A8'} : {...bntStyle}}
             onClick={() => following()}
           >
-            <span>{state ? 'Follow' : 'Following'}</span>
+            <span>{state ? 'Following' : 'Follow'}</span>
           </button>
         </div>
         
