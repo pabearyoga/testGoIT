@@ -1,6 +1,4 @@
-// import { useState } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
-
 
 import bgImg from '../image/picture.svg'
 import logo from '../image/Vector.svg'
@@ -8,12 +6,10 @@ import avatar from '../image/Hansel.svg'
 
 
 const App = () => {
-  // const [state, setState] = useState(true);
-  // const [followers, setFollowers] = useState(100500);
-  const [state, setState] = useLocalStorage('following', false);  // const [tweets, setTweets] = useState(777);
-  const [followers, setFollowers] = useLocalStorage('followers', 100500);  // const [tweets, setTweets] = useState(777);
-
+  const [state, setState] = useLocalStorage('following', false);
+  const [followers, setFollowers] = useLocalStorage('followers', 100500);  
   const tweets = 777;
+
 
   
   const following = () => {
