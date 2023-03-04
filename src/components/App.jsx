@@ -19,7 +19,7 @@ const App = () => {
   }
 
 
-  const bntStyle = { padding: '14px 28px', backgroundColor: '#EBD8FF', boxShadow: '0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25)', borderRadius: 10, border: 'none', width: 118, }
+  const bntStyle = { padding: '14px 28px',color: '#373737', backgroundColor: '#EBD8FF', boxShadow: '0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25)', borderRadius: 10, border: 'none', fontFamily: 'Montserrat-SemiBold', fontSize: 18, textTransform: 'uppercase', width: 196 }
 
   
 
@@ -59,11 +59,11 @@ const App = () => {
         {/* //countWrapper */}
         <div style={{marginTop: 62, display: 'flex', flexDirection: 'column', gap: 16}}>
           {/* //tweets */}
-          <div style={{ display: 'flex', justifyContent: 'center', textTransform: 'uppercase', color: '#EBD8FF'}}>
+          <div style={{ display: 'flex', justifyContent: 'center', textTransform: 'uppercase', color: '#EBD8FF', fontFamily: 'Montserrat-Medium', fontSize: 20}}>
             <p>{tweets} tweets</p>
           </div>
           {/* //followers */}
-          <div style={{ display: 'flex', justifyContent: 'center', textTransform: 'uppercase', color: '#EBD8FF'}}>
+          <div style={{ display: 'flex', justifyContent: 'center', textTransform: 'uppercase', color: '#EBD8FF', fontFamily: 'Montserrat-Medium', fontSize: 20}}>
             <p>{followers} followers</p>
           </div>
         </div>
