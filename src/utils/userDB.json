@@ -1,0 +1,23 @@
+[
+{
+"id": 1,
+"user": "Elon Reeve Musk",
+"tweets": 777,
+"followers": 100500,
+"avatar": "https://www.svgrepo.com/show/135823/boy.svg"
+},
+{
+"id": 2,
+"user": "Bill Gates",
+"tweets": 999,
+"followers": 100000,
+"avatar": "https://www.svgrepo.com/show/28158/boy.svg"
+},
+{
+"id": 3,
+"user": "Joe Biden",
+"tweets": 888,
+"followers": 800800,
+"avatar": "https://www.svgrepo.com/show/125459/man.svg"
+}
+]
