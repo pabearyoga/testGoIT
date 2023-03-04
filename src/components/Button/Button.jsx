@@ -5,7 +5,7 @@ export default function Button({ state, followingClick, clickOnTitle, alreadyCli
     return (
         <div className={css.btnWrapper}>
             <button
-                className={state ? css.btn  : css.btnFollowing}
+                className={state ? css.btnFollowing  : css.btn}
                 type='button'
                 onClick={ followingClick}
             >
