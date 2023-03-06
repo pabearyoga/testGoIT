@@ -4,7 +4,7 @@ import css from "./DecorateImg.module.css"
 export default function DecorateImg() {
  return (
     <div className={css.imgWrapper}>
-        <img src={bgImg} alt=""  />
+         <img src={bgImg} alt="background" />
     </div>
     );
 }
