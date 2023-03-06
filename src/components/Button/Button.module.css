@@ -16,9 +16,18 @@
   font-size: 18px;
   text-transform: uppercase;
   width: 196px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #5cd3a8;
 }
 
 .btnFollowing {
   composes: btn;
   background-color: #5cd3a8;
+}
+
+.btnFollowing:hover {
+  background-color: #ebd8ff;
 }
