@@ -19,8 +19,8 @@ const CardItem = ({ data }) => {
 
   const following = () => {
     localStorage.isFollowing ?
-      setLocaleStorage((prevState) => ({ ...prevState, "isFollowing": false, "followers": data.followers })) :
-      setLocaleStorage((prevState) => ({ ...prevState, "isFollowing": true, "followers": data.followers + 1 }))
+      setLocaleStorage((prevState) => ({ ...prevState, "isFollowing": false, "followers": prevState.followers - 1 })) :
+      setLocaleStorage((prevState) => ({ ...prevState, "isFollowing": true, "followers": prevState.followers + 1 }))
   }
   
   
