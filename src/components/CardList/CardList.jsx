@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 
 import CardItem from './CardItem/CatdItem';
+import css from './CardList.module.css'
 
 
 const CardList  = ({userData }) => (
 
-  <ul>
+  <ul className={css.cardList}>
     {userData.map(userData => (
-      <li key={userData.id}>
+      <li className={css.cardItem}  key={userData.id}>
         <CardItem data={userData} />       
       </li>))}
   </ul>
