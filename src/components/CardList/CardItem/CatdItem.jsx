@@ -14,33 +14,33 @@ import Button from "../../Button/Button";
 
 
 const CardItem = ({ data }) => {
-    const [state, setState] = useLocalStorage(`following_${data.id}`, false);
-    const [followers, setFollowers] = useLocalStorage(`followers_${data.id}`, data.followers);  
-    const [tweets] = useLocalStorage(`tweets_${data.id}`, data.tweets);
+  
+  const [localStorage, setLocaleStorage] = useLocalStorage(`card_${data.id}`, {"isFollowing": false, "followers": data.followers, "tweets": data.tweets });
 
-    const following = () => {
-        state ? setState(false) : setState(true)
-        state ? setFollowers((prevState) => (prevState - 1)) : setFollowers((prevState) => (prevState + 1))
-    }
-
-
-    const followersPoint = (number) => {
-        const numberArr = number.toString().split("");
-        const firstPart = numberArr.slice(0,3).join("")
-        const secondPart = numberArr.slice(3).join("")
-        return `${firstPart},${secondPart}`
-    }
-
+  const following = () => {
+    localStorage.isFollowing ?
+      setLocaleStorage((prevState) => ({ ...prevState, "isFollowing": false, "followers": data.followers })) :
+      setLocaleStorage((prevState) => ({ ...prevState, "isFollowing": true, "followers": data.followers + 1 }))
+  }
+  
+  
+  const followersPoint = (number) => {
+    const numberArr = number.toString().split("");
+    const firstPart = numberArr.slice(0,3).join("")
+    const secondPart = numberArr.slice(3).join("")
+    return `${firstPart},${secondPart}`
+  }
+  
     return (
       <Section>
         <Logo />
         <DecorateImg />
         <Avatar img={data.avatar} />
         <CountWrapper>
-          <CountTitle count={tweets} title={'tweets'} />
-          <CountTitle count={followersPoint(followers)} title={'followers'}/>
+          <CountTitle count={localStorage.tweets} title={'tweets'} />
+          <CountTitle count={followersPoint(localStorage.followers)} title={'followers'}/>
         </CountWrapper>
-        <Button state={state} followingClick={following} alreadyClickedTitle={'Following'} clickOnTitle={'Follow'} />       
+        <Button state={localStorage.isFollowing} followingClick={following} alreadyClickedTitle={'Following'} clickOnTitle={'Follow'} />       
       </Section>
     )
 };
